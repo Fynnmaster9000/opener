@@ -33,7 +33,8 @@
       border: none;
       cursor: pointer;
       border-radius: 10px;
-      z-index: 2;
+      z-index: 3;
+      transition: opacity 1s ease;
     }
 
     #downloadButton {
@@ -49,30 +50,69 @@
       border-radius: 10px;
       z-index: 2;
       display: none;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    #downloadButton.show {
+      display: block;
+      opacity: 1;
     }
 
     #ratImage {
       width: 100vw;
       height: 100vh;
       object-fit: fill;
+      opacity: 0;
+      transition: opacity 2s ease;
       display: none;
+    }
+
+    #ratImage.show {
+      display: block;
+      opacity: 1;
+    }
+
+    #fadeOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    #fadeOverlay.fade-in {
+      opacity: 1;
+    }
+
+    #fadeOverlay.fade-out {
+      opacity: 0;
     }
   </style>
 </head>
 <body>
   <button id="fullscreenButton">View RAT</button>
 
-  <!-- Download button for RAT.exe -->
   <a href="RAT.exe" download>
     <button id="downloadButton">Download RAT</button>
   </a>
 
   <img src="RAT.png" alt="RAT Image" id="ratImage">
+  <div id="fadeOverlay"></div>
+
+  <audio id="dramaticSound" src="dramatic.mp3" preload="auto"></audio>
 
   <script>
     const viewBtn = document.getElementById('fullscreenButton');
     const downloadBtn = document.getElementById('downloadButton');
     const ratImg = document.getElementById('ratImage');
+    const overlay = document.getElementById('fadeOverlay');
+    const sound = document.getElementById('dramaticSound');
 
     viewBtn.addEventListener('click', () => {
       const elem = document.documentElement;
@@ -85,9 +125,21 @@
         elem.msRequestFullscreen();
       }
 
-      viewBtn.style.display = 'none';
-      ratImg.style.display = 'block';
-      downloadBtn.style.display = 'block';
+      viewBtn.style.opacity = '0';
+      overlay.classList.add('fade-in');
+
+      setTimeout(() => {
+        viewBtn.style.display = 'none';
+        ratImg.classList.add('show');
+        overlay.classList.remove('fade-in');
+        overlay.classList.add('fade-out');
+
+        // Show download and play sound after slight delay
+        setTimeout(() => {
+          downloadBtn.classList.add('show');
+          sound.play().catch(e => console.warn("Autoplay blocked:", e));
+        }, 1000);
+      }, 1000);
     });
   </script>
 </body>
