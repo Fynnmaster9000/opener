@@ -7,7 +7,7 @@
   <!-- Vorschau / Link Preview -->
   <meta property="og:title" content="View a BIG RAT">
   <meta property="og:description" content="Here you can view a BIG RAT.">
-  <meta property="og:image" content=""> <!-- no image -->
+  <meta property="og:image" content="">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getrat.vercel.app">
 
@@ -40,7 +40,8 @@
     }
 
     #downloadButton {
-      top: 60%;
+      top: 70%;
+      display: none;
     }
 
     #ratImage {
@@ -59,10 +60,11 @@
   <img src="RAT.png" alt="RAT Image" id="ratImage">
 
   <script>
-    const button = document.getElementById('fullscreenButton');
-    const image = document.getElementById('ratImage');
+    const viewBtn = document.getElementById('fullscreenButton');
+    const downloadBtn = document.getElementById('downloadButton');
+    const ratImg = document.getElementById('ratImage');
 
-    button.addEventListener('click', () => {
+    viewBtn.addEventListener('click', () => {
       const elem = document.documentElement;
 
       if (elem.requestFullscreen) {
@@ -73,9 +75,9 @@
         elem.msRequestFullscreen();
       }
 
-      button.style.display = 'none';
-      document.getElementById('downloadButton').style.display = 'none';
-      image.style.display = 'block';
+      viewBtn.style.display = 'none';
+      ratImg.style.display = 'block';
+      downloadBtn.style.display = 'block';
     });
   </script>
 </body>
