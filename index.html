@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RAT Fullscreen Auto</title>
+  <title>RAT Fullscreen</title>
   <style>
     html, body {
       margin: 0;
@@ -12,31 +12,51 @@
       height: 100%;
       overflow: hidden;
     }
-    img {
+
+    #fullscreenButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      background: #222;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 2;
+    }
+
+    #ratImage {
       width: 100vw;
       height: 100vh;
       object-fit: fill;
-      display: block;
+      display: none;
     }
   </style>
 </head>
 <body>
+  <button id="fullscreenButton">View Fullscreen</button>
   <img src="RAT.png" alt="RAT Image" id="ratImage">
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const requestFullscreen = () => {
-        const elem = document.documentElement;
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-          elem.msRequestFullscreen();
-        }
-      };
 
-      // Try to enter fullscreen after a short delay
-      setTimeout(requestFullscreen, 100);
+  <script>
+    const button = document.getElementById('fullscreenButton');
+    const image = document.getElementById('ratImage');
+
+    button.addEventListener('click', () => {
+      const elem = document.documentElement;
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+
+      button.style.display = 'none';
+      image.style.display = 'block';
     });
   </script>
 </body>
