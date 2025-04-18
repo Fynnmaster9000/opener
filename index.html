@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RAT Fullscreen Stretch</title>
+  <title>RAT Fullscreen Auto</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       background-color: #000;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
     img {
       width: 100vw;
@@ -19,6 +21,23 @@
   </style>
 </head>
 <body>
-  <img src="RAT.png" alt="RAT Image">
+  <img src="RAT.png" alt="RAT Image" id="ratImage">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const requestFullscreen = () => {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      };
+
+      // Try to enter fullscreen after a short delay
+      setTimeout(requestFullscreen, 100);
+    });
+  </script>
 </body>
 </html>
