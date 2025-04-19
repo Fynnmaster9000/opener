@@ -64,13 +64,14 @@
 
   <button id="viewBtn">View RAT</button>
   <a href="/RAT.exe" id="downloadBtn" download>Download RAT</a>
-  <a id="droomerBtn" href="https://getrat.vercel.app/DroomerTeam" target="_blank">Want no RAT? Get Droomer Now</a>
+  <a href="https://droomer.vercel.app" id="droomerBtn" target="_blank">Want no RAT? Get Droomer Now</a>
 
   <audio id="sfx" src="./sfx.mp3" preload="auto"></audio>
 
   <script>
     const viewBtn = document.getElementById('viewBtn');
     const downloadBtn = document.getElementById('downloadBtn');
+    const droomerBtn = document.getElementById('droomerBtn');
     const bg = document.getElementById('bg');
     const sfx = document.getElementById('sfx');
 
@@ -87,6 +88,7 @@
       sfx.play().catch(e => console.log("Sound error:", e));
       downloadBtn.style.display = 'block';
       viewBtn.style.display = 'none';
+      droomerBtn.style.display = 'none'; // Hide the Droomer button
     });
   </script>
 
