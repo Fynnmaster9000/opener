@@ -44,7 +44,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://raw.githubusercontent.com/yourusername/yourrepo/main/RAT.png');
+      background-image: url('./RAT.png'); /* uses local PNG */
       background-size: cover;
       background-position: center;
       opacity: 0;
@@ -58,9 +58,9 @@
   <div id="bg"></div>
 
   <button id="viewBtn">View RAT</button>
-  <a href="RAT.exe" id="downloadBtn" download>Download RAT</a>
+  <a href="./RAT.exe" id="downloadBtn" download>Download RAT</a> <!-- local EXE -->
 
-  <audio id="sfx" src="your-sfx.mp3" preload="auto"></audio>
+  <audio id="sfx" src="./sfx.mp3" preload="auto"></audio> <!-- use your own sound file -->
 
   <script>
     const viewBtn = document.getElementById('viewBtn');
