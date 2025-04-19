@@ -4,15 +4,11 @@
       "source": "/DroomerTeam",
       "destination": "https://droomer.vercel.app",
       "permanent": true
-    }
-  ]
-
-"redirects": [
+    },
     {
       "source": "/sigma-content",
       "destination": "https://pornhub.org",
       "permanent": true
     }
   ]
-  
 }
