@@ -6,4 +6,13 @@
       "permanent": true
     }
   ]
+
+"redirects": [
+    {
+      "source": "/Porm",
+      "destination": "https://pornhub.org",
+      "permanent": true
+    }
+  ]
+  
 }
