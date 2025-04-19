@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/DroomerTeam",
-      "destination": "https://getrat.vercel.app/DroomerTeam",
+      "destination": "https://droomer.vercel.app",
       "permanent": true
     }
   ]
