@@ -1,9 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/DroomerTeam",
       "destination": "https://Droomer.vercel.app",
-      "permanent": true
     }
   ]
 }
