@@ -2,13 +2,9 @@
   "redirects": [
     {
       "source": "/DroomerTeam",
-      "destination": "https://droomer.vercel.app",
-      "permanent": true
-    },
-    {
-      "source": "/sigma-content",
-      "destination": "https://pornhub.org",
+      "destination": "/droomer.html",
       "permanent": true
     }
   ]
 }
+ 
