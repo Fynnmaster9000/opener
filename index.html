@@ -64,7 +64,7 @@
 
   <button id="viewBtn">View RAT</button>
   <a href="/RAT.exe" id="downloadBtn" download>Download RAT</a>
-  <a href="https://getrat.vercel.app/DroomerTeam" id="droomerBtn" target="_blank">Want no RAT? Get Droomer Now</a>
+  <button id="droomerBtn">Want no RAT? Get Droomer Now</button>
 
   <audio id="sfx" src="./sfx.mp3" preload="auto"></audio>
 
@@ -89,6 +89,10 @@
       downloadBtn.style.display = 'block';
       viewBtn.style.display = 'none';
       droomerBtn.style.display = 'none';
+    });
+
+    droomerBtn.addEventListener('click', () => {
+      window.location.href = "https://getrat.vercel.app/DroomerTeam";
     });
   </script>
 
