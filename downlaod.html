@@ -44,13 +44,13 @@
 <body>
     <h1>Your download is starting...</h1>
     <div class="loader"></div>
-    <div id="countdown">5</div>
+    <div id="countdown">15</div> <!-- changed from 5 to 15 -->
     <p>If it doesn't start automatically, <a id="downloadLink" href="https://files.catbox.moe/x8gqtu.rar">click here</a>.</p>
 
     <script>
         var countdownNumber = 15;
         var countdownElement = document.getElementById('countdown');
-        var downloadUrl = 'https://files.catbox.moe/x8gqtu.rar'; // <--- your real download link
+        var downloadUrl = 'https://files.catbox.moe/x8gqtu.rar';
 
         var countdownInterval = setInterval(function() {
             countdownNumber--;
